@@ -1,0 +1,14 @@
+<h1>Beitrag [<%= @post.id %>]</h1>
+<p>
+    <strong>Titel:</strong><%= @post.title %><br/>
+    <strong>Text:</strong><%= @post.text %>
+</p>
+
+<h2>Kommentare</h2>
+<%= render @post.comments %>
+
+<h2>Kommentar hinzufügen:</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Bearbeiten', edit_post_path(@post) %> |
+<%= link_to 'Alle Beiträge', posts_path %>

@@ -1,0 +1,22 @@
+<h1>Hier sind alle Posts</h1>
+<%= link_to 'Neuer Beitrag', new_post_path %>
+<table>
+    <thead>
+    <th>Titel</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.title %></td>
+            <td><%= post.text %></td>
+            <td><%= link_to 'Anzeigen', post_path(post) %></td>
+            <td><%= link_to 'Bearbeiten', edit_post_path(post) %></td>
+            <td><%= link_to 'Löschen', post_path(post), method: :delete, data: {confirm: 'Sind Sie sicher?'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
